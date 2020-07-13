@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Авторизация</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Тестовая система">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<div id="login" style="display: table">
+		<img src="../images/logo.png" style="width: 218.017px">
+		<form action="/login" method="post">
+		  <label for="username">Имя пользователя:</label><br>
+		  <input type="text" id="username" name="username" placeholder="Login" autofocus><br>
+		  <label for="password">Пароль:</label><br>
+		  <input type="password" id="password" name="password" placeholder="●●●●●●●●"><br>
+		  <input id="button" type="submit" value="Войти">
+		</form><br>
+		<a id="regLabel" href="javascript:void(0)" onclick="hideLogin()">Регистрация</a>
+	</div>
+	<div id="register" style="display: none">
+		<img src="../images/logo.png" style="width: 218.017px">
+		<form action="/reg" method="post">
+		  <label for="username">Имя пользователя:</label><br>
+		  <input type="text" id="username" name="username" placeholder="Login" autofocus><br>
+		  <label for="password">Пароль:</label><br>
+		  <input type="password" id="password" name="password" placeholder="●●●●●●●●"><br>
+		  <label for="confpassword">Подтвердите пароль:</label><br>
+		  <input type="password" id="password" name="confpassword" placeholder="●●●●●●●●"><br>
+		  <input id="button" type="submit" value="Зарегистрироваться">
+		</form><br>
+		<a id="regLabel" href="javascript:void(0)" onclick="showLogin()">Авторизация</a>
+	</div>
+</body>
+	<script defer type="text/javascript">
+		var login = document.getElementById("login");
+		var reg = document.getElementById("register");
+		login.style.marginTop = (window.innerHeight - login.scrollHeight) * 0.5 + "px";
+		reg.style.opacity = 0;
+		reg.style.display = "table";
+		reg.style.marginTop = (window.innerHeight - reg.scrollHeight) * 0.5 + "px";
+		reg.style.display = "none";
+		reg.style.opacity = 100;
+		function hideLogin() {
+			document.getElementById("login").style.display = "none"
+			document.getElementById("register").style.display = "table"
+		}
+		function showLogin() {
+			document.getElementById("login").style.display = "table"
+			document.getElementById("register").style.display = "none"
+		}
+	</script>
+</html>
