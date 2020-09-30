@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Главная страница</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Тестовая система">
+	<link rel="stylesheet" type="text/css" href="/static/html/styles.css">
+</head>
+<body>
+	{{.Header}}
+	<div class="page">
+		<ul>
+			{{range .Topics}}
+			<li>
+				<h1>
+					<a href="/edit/topic/{{.TopicId}}">Редактировать {{.TopicName}}</a>
+				</h1>
+				<p>{{.TopicDesc}}</p>
+			</li>
+			{{end}}
+		</ul>
+		<div style="display: table">
+			<form action="/newTopic" method="post" id = "createTopicForm">
+			  <label for="TopicName">Название темы:</label><br>
+			  <input type="text" id="TopicName" name="TopicName" placeholder="Тест" autofocus><br>
+			  <label for="TopicDesc">Описание темы:</label><br>
+			  <textarea form ="createTopicForm" name="TopicDesc" id="TopicDesc" cols="35" wrap="soft"></textarea>
+			  <input type="hidden" name = "TestId" value="{{.TestId}}">
+			  <input class="button" type="submit" value="Создать">
+			</form>
+		</div>
+	</div>
+</body>
+</html>

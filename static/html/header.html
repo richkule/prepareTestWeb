@@ -1,0 +1,16 @@
+<div class="header">
+	<div id="logohdr"><a id="logo" href="index.html"><img id="logo" src="/static/images/logo.png"></a></div>
+	<a class="refhdr" href="/tests">Тесты</a>
+	{{if ne .UserName "Гость"}}
+	<a class="refhdr" href="/create">Создать тест</a>
+	<a class="refhdr" href="/stats">Статистика пользователя</a>
+	{{end}}
+	<div style="display: flex; margin-left: auto; padding-right: 3vw">
+	<p class="refhdr" style="font-size: 18px; margin-left: 1vw">{{.UserName}}</p>
+	{{if eq .UserName "Гость"}}
+	<a class="refhdr" href="/login">Войти</a>
+	{{else}}
+	<a class="refhdr" href="/logout">Выйти</a>
+	{{end}}
+	</div>
+</div>

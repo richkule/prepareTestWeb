@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Главная страница</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Тестовая система">
+	<link rel="stylesheet" type="text/css" href="/static/html/styles.css">
+</head>
+<body>
+	{{.Header}}
+	<div class="page">
+		<ul>
+			{{range .Tests}}
+			<li>
+				<h1>
+					<a href="/edit/test/{{.TestId}}">Редактировать {{.TestName}}</a>
+				</h1>
+				<p>{{.TestDesc}}</p>
+			</li>
+			{{end}}
+		</ul>
+		<div style="display: table">
+			<form action="/newTest" method="post" id = "createTestForm">
+			  <label for="TestName">Название теста:</label><br>
+			  <input type="text" id="TestName" name="TestName" placeholder="Тест" autofocus><br>
+			  <label for="TestDesc">Описание теста:</label><br>
+			  <textarea form ="createTestForm" name="TestDesc" id="TestDesc" cols="35" wrap="soft"></textarea>
+			  <input class="button" type="submit" value="Создать">
+			</form>
+		</div>
+	</div>
+</body>
+</html>

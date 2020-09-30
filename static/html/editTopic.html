@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Главная страница</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Тестовая система">
+	<link rel="stylesheet" type="text/css" href="/static/html/styles.css">
+</head>
+<body>
+	{{.Header}}
+	<div class="page">
+		<ul>
+			{{range .Questions}}
+			<li>
+				<h1>
+					<a href="/edit/question/{{.QuestionId}}">Редактировать {{.QuestionName}}</a>
+				</h1>
+			</li>
+			{{end}}
+		</ul>
+		<div style="display: table">
+			<form action="/newQuestion" method="post" id = "createQuestionForm">
+			  <label for="QuestionName">Название вопроса:</label><br>
+			  <input type="text" id="QuestionName" name="QuestionName" placeholder="Тест" autofocus><br>
+			  <p><input name="type" type="radio" value="0">Письменный ответ</p>
+			  <p><input name="type" type="radio" value="1">Выбор одного ответа</p>
+			  <p><input name="type" type="radio" value="2" checked>Выбор нескольких ответов</p>
+			  <p><input name="type" type="radio" value="3" checked>Сопоставление</p>
+			  <input type="hidden" name = "TopicId" value="{{.TopicId}}">
+			  <input class="button" type="submit" value="Создать">
+			</form>
+		</div>
+	</div>
+</body>
+</html>

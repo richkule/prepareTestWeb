@@ -1,11 +1,11 @@
-package main
+// Нынче не работает, раньше успешно парсил вопросы
+package dataParse
 
 import (
+	"github.com/PuerkitoBio/goquery"
 	"log"
 	"net/http"
 	"unicode"
-	//Библиотека парсинга HTML, схожая с jQuery javascript
-	"github.com/PuerkitoBio/goquery"
 )
 
 type question struct {
@@ -140,5 +140,11 @@ func main() {
 	// Ожидание завершение всех go рутин
 	for i := 0; i < len(a); i++ {
 		<-ch
+	}
+	for _, elem := range tArr {
+		println("Название темы " + elem.name)
+		for _, elem2 := range elem.questions {
+			println("Вопрос " + elem2.name)
+		}
 	}
 }

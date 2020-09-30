@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Главная страница</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Тестовая система">
+	<link rel="stylesheet" type="text/css" href="/static/html/styles.css">
+</head>
+<body>
+	{{.Header}}
+	<div class="page">
+		<ul>
+			{{range .Tests}}
+			<li>
+				<h1>
+					<a href="/test/{{.TestId}}">{{.TestName}}</a>
+				</h1>
+				<p>{{.TestDesc}}</p>
+				<p> Автор: {{.AuthorName}}</p>
+				{{if .TestRate}}
+				<p> Оценка: {{.TestRate}}</p>	
+				{{else}}
+				<p> Еще не оценено</p>
+				{{end}}
+			</li>
+			{{end}}
+		</ul>
+	</div>
+</body>
+</html>
